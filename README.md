@@ -1,16 +1,34 @@
-# React + Vite
+# Semantic Gravity: Physics-Based Neural Search Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/Frontend-React%20%2B%20D3.js-61DAFB)
+![Python](https://img.shields.io/badge/Backend-FastAPI%20%2B%20NumPy-3776AB)
+![AI](https://img.shields.io/badge/AI-Ollama%20(Local)-000000)
 
-Currently, two official plugins are available:
+**Semantic Gravity** is an experimental search interface that reimagines data visualization. Instead of static lists, it treats information as physical matter. Using **Local LLMs (Ollama)** and **Vector Embeddings**, the system calculates the semantic relevance of data points and maps that score to gravitational force in a physics simulation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **The Core Concept:** In this universe, **Relevance = Gravity**.
+> Highly relevant data physically falls to the center of the user's attention, while irrelevant data floats into the void.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏗 Architecture
 
-## Expanding the ESLint configuration
+This project utilizes a decoupled 3-tier architecture to separate the Neural Compute layer from the Physics Rendering layer.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```mermaid
+graph TD
+    subgraph "Frontend Layer (Client)"
+        UI[React UI] --> |User Query| API[Fetch API]
+        D3[D3.js Physics Engine] --> |Render @ 60FPS| Canvas[HTML5 Canvas]
+    end
+
+    subgraph "Logic Layer (Server)"
+        FastAPI[Python FastAPI] --> |Orchestration| VectorEngine
+        FastAPI --> |JSON Response| UI
+    end
+
+    subgraph "Intelligence Layer (Local AI)"
+        VectorEngine[NumPy Vector Store] --> |Text| Ollama
+        Ollama[Ollama Service] --> |Embeddings (768 dim)| VectorEngine
+    end
