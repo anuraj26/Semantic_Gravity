@@ -1,43 +1,16 @@
-# Semantic Gravity
+# React + Vite
 
-A visual search engine where the "gravity" of an object is determined by its semantic relevance to a user's query.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Prerequisites
+Currently, two official plugins are available:
 
-1.  **Ollama**: You must have [Ollama](https://ollama.com/) installed and running.
-2.  **Model**: You need the `nomic-embed-text` model.
-    ```bash
-    ollama pull nomic-embed-text
-    ```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## How to Run
+## React Compiler
 
-You need to run the Backend and Frontend in separate terminals.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### 1. Backend (Python FastAPI)
+## Expanding the ESLint configuration
 
-```bash
-cd backend
-# Create venv if not exists
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-# Run server
-uvicorn main:app --reload
-```
-The backend runs on `http://localhost:8000`.
-
-### 2. Frontend (React + Vite)
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-The frontend runs on `http://localhost:5173`.
-
-## Troubleshooting
-
-- **Ollama Connection Failed**: Ensure Ollama is running (`ollama serve`) and you have pulled the model (`ollama pull nomic-embed-text`).
-- **Backend 404**: If the backend says 404 for Ollama, check your Ollama version.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
