@@ -18,17 +18,17 @@ This project utilizes a decoupled 3-tier architecture to separate the Neural Com
 
 ```mermaid
 graph TD
-    subgraph "Frontend Layer (Client)"
+    subgraph "Frontend Layer Client"
         UI[React UI] --> |User Query| API[Fetch API]
         D3[D3.js Physics Engine] --> |Render @ 60FPS| Canvas[HTML5 Canvas]
     end
 
-    subgraph "Logic Layer (Server)"
+    subgraph "Logic Layer Server"
         FastAPI[Python FastAPI] --> |Orchestration| VectorEngine
         FastAPI --> |JSON Response| UI
     end
 
-    subgraph "Intelligence Layer (Local AI)"
+    subgraph "Intelligence Layer Local AI"
         VectorEngine[NumPy Vector Store] --> |Text| Ollama
-        Ollama[Ollama Service] --> |Embeddings (768 dim)| VectorEngine
+        Ollama[Ollama Service] --> |Embeddings 768 dim| VectorEngine
     end
